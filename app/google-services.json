@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "706373955298",
+    "firebase_url": "https://question-1b08a.firebaseio.com",
+    "project_id": "question-1b08a",
+    "storage_bucket": "question-1b08a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706373955298:android:7f5b155639d25daefeb8bb",
+        "android_client_info": {
+          "package_name": "com.example.podcastsuper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706373955298-14vuqv19is59001aatcr8ijcuv6kt0fd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.podcastsuper",
+            "certificate_hash": "95bf809fc9ec6f06e960ad6f7f3df522ab211de6"
+          }
+        },
+        {
+          "client_id": "706373955298-kfrq93j6vo7danlagrchsc4e9n4465ck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp77S_F-In28PzqxntRRG--BzyyPGSstk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706373955298-kfrq93j6vo7danlagrchsc4e9n4465ck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706373955298:android:88c190a3fd755af3feb8bb",
+        "android_client_info": {
+          "package_name": "com.reciclagus.question"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706373955298-lvqrju1tdg37mpngbrjicjo6qbg5ktl2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reciclagus.question",
+            "certificate_hash": "95bf809fc9ec6f06e960ad6f7f3df522ab211de6"
+          }
+        },
+        {
+          "client_id": "706373955298-i3j1a65ub9a3velo1d0qu469ithe80pv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reciclagus.question",
+            "certificate_hash": "0715b7f050c5f9d72c3b215c26eb620765f69475"
+          }
+        },
+        {
+          "client_id": "706373955298-kfrq93j6vo7danlagrchsc4e9n4465ck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp77S_F-In28PzqxntRRG--BzyyPGSstk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706373955298-kfrq93j6vo7danlagrchsc4e9n4465ck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
