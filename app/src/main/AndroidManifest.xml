@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activities.quiz.ModulesActivity"></activity>
+        <activity android:name=".view.activities.quiz.QuizActivity"></activity>
+        <activity android:name=".view.activities.quiz.ModulesActivity" />
         <activity
             android:name=".view.activities.EditNoteActivity"
             android:label="@string/title_activity_edit_note"

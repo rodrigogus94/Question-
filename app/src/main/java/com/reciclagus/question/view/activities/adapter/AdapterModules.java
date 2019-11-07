@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.reciclagus.question.R;
 import com.reciclagus.question.model.quiz.Module;
 import com.reciclagus.question.view.activities.quiz.ModulesActivity;
+import com.reciclagus.question.view.activities.quiz.QuizActivity;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class AdapterModules extends RecyclerView.Adapter {
@@ -39,9 +41,9 @@ public class AdapterModules extends RecyclerView.Adapter {
         m.box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent i = new Intent(m.box.getContext(), ModulesActivity.class);
-
-                //m.box.getContext().startActivity(i);
+               Intent i = new Intent(m.box.getContext(), QuizActivity.class);
+               i.putExtra("module" , (Serializable) module.get(position));
+               m.box.getContext().startActivity(i);
             }
         });
 

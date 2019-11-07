@@ -13,23 +13,23 @@ import com.reciclagus.question.model.quiz.Module;
 import com.reciclagus.question.model.quiz.Question;
 import com.reciclagus.question.view.activities.adapter.AdapterModules;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * classe responsavel por listar os modulos
+ */
 public class ModulesActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    List<Module> modules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modules);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String value = extras.getString("course");
-            Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
-        }
 
         recyclerView = findViewById(R.id.all_modules);
 
@@ -39,12 +39,11 @@ public class ModulesActivity extends AppCompatActivity {
         GridLayoutManager lm = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(lm);
 
-        List<Module> m = new ArrayList<>();
-        Module mm = new Module();
-        mm.setTitle("teste");
-        m.add(mm);
-
-
-        recyclerView.setAdapter(new AdapterModules(m));
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            modules = (List<Module>) extras.getSerializable("modules");
+            recyclerView.setAdapter(new AdapterModules(modules));
+        }
     }
+
 }

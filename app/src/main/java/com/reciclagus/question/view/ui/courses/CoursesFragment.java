@@ -1,20 +1,14 @@
 package com.reciclagus.question.view.ui.courses;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -27,12 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.reciclagus.question.R;
-import com.reciclagus.question.adapters.ComunicationFragment;
-import com.reciclagus.question.model.quiz.Alternative;
-import com.reciclagus.question.model.quiz.Content;
 import com.reciclagus.question.model.quiz.Course;
-import com.reciclagus.question.model.quiz.Module;
-import com.reciclagus.question.model.quiz.Question;
 import com.reciclagus.question.view.activities.ReminderManagerActivity;
 
 import java.util.ArrayList;

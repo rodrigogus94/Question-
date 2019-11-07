@@ -1,6 +1,8 @@
 package com.reciclagus.question.model.quiz;
 
-public class Alternative {
+import java.io.Serializable;
+
+public class Alternative implements Serializable {
 
     private String txt;
     private boolean correct;

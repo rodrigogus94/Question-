@@ -1,6 +1,8 @@
 package com.reciclagus.question.model.quiz;
 
-public class Content {
+import java.io.Serializable;
+
+public class Content implements Serializable {
 
     private String txtMain;
     private String txtExemple;

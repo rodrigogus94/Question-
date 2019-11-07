@@ -1,18 +1,11 @@
 package com.reciclagus.question.view.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import android.util.Log;
-import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -25,15 +18,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.reciclagus.question.R;
-import com.reciclagus.question.adapters.ComunicationFragment;
 import com.reciclagus.question.model.quiz.Alternative;
 import com.reciclagus.question.model.quiz.Content;
 import com.reciclagus.question.model.quiz.Course;
 import com.reciclagus.question.model.quiz.Module;
 import com.reciclagus.question.model.quiz.Question;
-import com.reciclagus.question.view.ui.courses.CoursesFragment;
-import com.reciclagus.question.view.ui.courses.ModuleFragment;
-import com.reciclagus.question.view.ui.courses.QuizFragment;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -46,12 +35,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ComunicationFragment {
+public class MainActivity extends AppCompatActivity{
 
     private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
     private AppBarConfiguration mAppBarConfiguration;
     private FragmentManager fragmentManager;
     Module module;
+    Module module2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,35 +65,38 @@ public class MainActivity extends AppCompatActivity implements ComunicationFragm
         NavigationUI.setupWithNavController(navigationView, navController);
 
         List<Alternative> a1 = new ArrayList<Alternative>();
-        a1.add(new Alternative("alternativa 1", true));
-        a1.add(new Alternative("alternativa 2", false));
-        a1.add(new Alternative("alternativa 3", false));
-        a1.add(new Alternative("alternativa 4", false));
+        a1.add(new Alternative("1,3", false));
+        a1.add(new Alternative("0,0003", false));
+        a1.add(new Alternative("5", true));
+        a1.add(new Alternative("1,0f", false));
 
         List<Alternative> a2 = new ArrayList<Alternative>();
-        a1.add(new Alternative("alternativa 1", true));
-        a1.add(new Alternative("alternativa 2", false));
-        a1.add(new Alternative("alternativa 3", false));
-        a1.add(new Alternative("alternativa 4", false));
+        a2.add(new Alternative("ananda", true));
+        a2.add(new Alternative("aaaaa", false));
+        a2.add(new Alternative("alterssssss", false));
+        a2.add(new Alternative("awwwwwwwwww", false));
 
         List<Alternative> a3 = new ArrayList<Alternative>();
-        a1.add(new Alternative("alternativa 1", true));
-        a1.add(new Alternative("alternativa 2", false));
-        a1.add(new Alternative("alternativa 3", false));
-        a1.add(new Alternative("alternativa 4", false));
+        a3.add(new Alternative("int , double , float", true));
+        a3.add(new Alternative("batata", false));
+        a3.add(new Alternative("fffffff", false));
+        a3.add(new Alternative("String", false));
 
         List<Question> questions1 = new ArrayList<Question>();
-        Question q1 = new Question("questao 1", a1);
-        Question q2 = new Question("questao 2", a2);
-        Question q3 = new Question("questao 3", a3);
+        Question q1 = new Question("O que tipo de dados armazena uma varivael do tipo int", a1);
+        Question q2 = new Question("o que é herença qualquerm coisa", a2);
+        Question q3 = new Question("Quias são os tipos primitivos?", a3);
         questions1.add(q1);
         questions1.add(q2);
         questions1.add(q3);
 
-        module = new Module("teste1", new Content("texO MAIN", "TXT EXEMPLOOO"), 1, questions1);
+        module = new Module("bolinha básico", new Content("Jacare muito básico", "int i = 0"), 1, questions1);
+
+
+        module2 = new Module("bolao 2", new Content("teste muito básico", "double i = 0.6"), 1, questions1);
         //List<Course> s =  getCourses();
 
-
+       // addCourse(new Course());
 
     }
 
@@ -112,7 +105,9 @@ public class MainActivity extends AppCompatActivity implements ComunicationFragm
 
         ArrayList<Module> listModule = new ArrayList<>();
         listModule.add(module);
+        listModule.add(module2);
 
+        c.setTitle("javascript");
         c.setModules(listModule);
 
         cursos.push().setValue(c);
@@ -185,36 +180,4 @@ public class MainActivity extends AppCompatActivity implements ComunicationFragm
                 || super.onSupportNavigateUp();
     }
 
-    @Override
-    public void event(String txt, int idQuestion) {
-        Question q = module.getQuestions().get(0);
-
-        switch (txt) {
-            case CoursesFragment.ID:
-                openFragmentInCourses(new CoursesFragment(), q);
-                break;
-            case ModuleFragment.ID:
-                openFragmentInCourses(new ModuleFragment(), q);
-                break;
-            case QuizFragment.ID:
-                openFragmentInCourses(new QuizFragment(), q);
-                Toast.makeText(this, "batata", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
-    }
-    public void openFragmentInCourses(Fragment f, Question question){
-
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("question", question);
-        f.setArguments(bundle);
-
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace( R.id.nav_host_fragment, f);
-        ft.commit();
-
-
-    }
 }

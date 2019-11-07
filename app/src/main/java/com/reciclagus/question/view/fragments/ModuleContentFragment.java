@@ -1,4 +1,4 @@
-package com.reciclagus.question.view.ui.courses;
+package com.reciclagus.question.view.fragments;
 
 
 import android.content.Context;
@@ -18,45 +18,51 @@ import com.reciclagus.question.model.util.ComunicationFragment;
 import com.reciclagus.question.model.util.Result;
 
 /**
- * A simple {@link Fragment} subclass. nao sei o isso faz
+ * A simple {@link Fragment} subclass.
  */
-public class ModuleFragment extends Fragment {
+public class ModuleContentFragment extends Fragment{
 
-    public static final String ID = "moduleFragment";
-    TextView txtContent, txtExample, txtTitle;
-
-    ComunicationFragment comunicationListener;
-    Button btnStartCourses;
-
+    TextView txtModule, txtContent, txtExample;
+    Button btnQuestion;
     Module module;
+    ComunicationFragment comunicationListener;
 
-    public ModuleFragment() {
+    public ModuleContentFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_courses_module, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_courses_module, container, false);
 
-        txtContent = root.findViewById(R.id.courses_txt_content);
-        txtExample = root.findViewById(R.id.courses_txt_example);
-        txtTitle = root.findViewById(R.id.courses_txt_module);
+        txtContent = view.findViewById(R.id.courses_txt_content);
+        txtExample = view.findViewById(R.id.courses_txt_example);
+        txtModule =  view.findViewById(R.id.courses_txt_module);
 
+        btnQuestion = view.findViewById(R.id.courses_bt_question);
 
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            module = (Module) bundle.getSerializable("module");
 
-        btnStartCourses = root.findViewById(R.id.courses_bt_question);
-        btnStartCourses.setOnClickListener(new View.OnClickListener() {
+            txtContent.setText(module.getContent().getTxtMain());
+            txtExample.setText(module.getContent().getTxtExemple());
+            txtModule.setText(module.getTitle());
+        }
+
+        btnQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (comunicationListener != null) {
-
-                    int idQuestion = 0;
                     comunicationListener.eventStart();
                 }
             }
         });
-        return root;
+
+        return view;
     }
 
     @Override
@@ -67,9 +73,5 @@ public class ModuleFragment extends Fragment {
         } else {
             throw new ClassCastException();
         }
-    }
-
-    public void mudarNomeButton() {
-        btnStartCourses.setText("kkkk");
     }
 }

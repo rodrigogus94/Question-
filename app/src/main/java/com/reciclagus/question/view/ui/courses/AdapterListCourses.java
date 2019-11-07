@@ -14,6 +14,7 @@ import com.reciclagus.question.R;
 import com.reciclagus.question.model.quiz.Course;
 import com.reciclagus.question.view.activities.quiz.ModulesActivity;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class AdapterListCourses extends RecyclerView.Adapter {
@@ -40,7 +41,7 @@ public class AdapterListCourses extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(m.box.getContext(), ModulesActivity.class);
-                i.putExtra("course" , cursos.get(position).getTitle());
+                i.putExtra("modules" , (Serializable) cursos.get(position).getModules());
                 m.box.getContext().startActivity(i);
             }
         });
@@ -55,6 +56,7 @@ public class AdapterListCourses extends RecyclerView.Adapter {
 
         TextView txt;
         ConstraintLayout box;
+
         public MyViewholder(@NonNull View itemView) {
             super(itemView);
 

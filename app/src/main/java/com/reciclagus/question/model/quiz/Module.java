@@ -1,8 +1,9 @@
 package com.reciclagus.question.model.quiz;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Module {
+public class Module implements Serializable {
 
     private String title;
     private Content content;
