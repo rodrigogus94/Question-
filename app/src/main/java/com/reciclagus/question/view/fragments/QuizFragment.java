@@ -35,7 +35,6 @@ public class QuizFragment extends Fragment {
     ComunicationFragment comunicationListener;
 
     public QuizFragment() {
-        // Required empty public constructor
     }
 
     @Override

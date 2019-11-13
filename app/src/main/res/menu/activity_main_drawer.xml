@@ -22,7 +22,7 @@
             android:title="@string/menu_notes" />
         <item
             android:id="@+id/nav_awards"
-            android:icon="@drawable/ic_awarded_white_24dp"
+            android:icon="@drawable/ic_card_giftcard_white_24dp"
             android:title="@string/menu_awards" />
 
     </group>

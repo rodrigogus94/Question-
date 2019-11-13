@@ -49,7 +49,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <CalendarView
-        android:id="@+id/calendarView"
+        android:id="@+id/calendarView_reminder_edit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

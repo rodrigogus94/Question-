@@ -71,17 +71,21 @@ public class QuizActivity extends AppCompatActivity implements ComunicationFragm
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
 
         Fragment f = new QuizFragment();
-
+// 0 1 2         3
         if (this.indexLastQuestion <= module.getQuestions().size()-1){
             Bundle bundle = new Bundle();
             bundle.putSerializable("question", module.getQuestions().get(this.indexLastQuestion));
             f.setArguments(bundle);
+
+            Toast.makeText(this, "modulo size "+module.getQuestions().size()+"" +
+                    "\n qtd "+this.indexLastQuestion, Toast.LENGTH_SHORT).show();
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.host_quiz,f);
+            ft.commit();
         }
 
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.host_quiz,f);
-        ft.commit();
+
 
         this.indexLastQuestion++;
     }
