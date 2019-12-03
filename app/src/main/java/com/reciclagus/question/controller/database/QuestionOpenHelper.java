@@ -30,13 +30,13 @@ public class QuestionOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_TABLE_NOTES);
-        db.execSQL(SQL_CREATE_TABLE_REMINDER);
+        //db.execSQL(SQL_CREATE_TABLE_REMINDER);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(SQL_DROP_TABLE_NOTES);
-        db.execSQL(SQL_DROP_TABLE_REMINDER);
+      //  db.execSQL(SQL_DROP_TABLE_REMINDER);
         onCreate(db);
 
     }

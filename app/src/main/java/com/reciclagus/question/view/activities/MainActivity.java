@@ -1,5 +1,7 @@
 package com.reciclagus.question.view.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -30,6 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity{
     Module module;
     Module module2;
 
+    SharedPreferences preferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +55,10 @@ public class MainActivity extends AppCompatActivity{
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        preferences = getSharedPreferences("settings", MODE_PRIVATE);
+        boolean modoNoturno = preferences.getBoolean(getString(R.string.txt_mode_nigth), false);
+        Toast.makeText(this, "noturno"+modoNoturno, Toast.LENGTH_SHORT).show();
+        if(!modoNoturno) setTheme(R.style.MeuTheme);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -169,7 +178,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 

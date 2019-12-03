@@ -5,7 +5,8 @@
     android:id="@+id/fragment_quiz_framelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragments.QuizFragment" >
+    tools:context=".view.fragments.QuizFragment"
+    style="@style/Widget.Design.AppBarLayout">
 
     <TextView
         android:id="@+id/fragment_quiz_title"

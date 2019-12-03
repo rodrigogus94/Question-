@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".view.activities.ReminderManagerActivity"
-    tools:showIn="@layout/activity_reminder_manager">
+    tools:showIn="@layout/activity_reminder_manager"
+    style="@style/Widget.Design.AppBarLayout">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -25,7 +26,8 @@
             android:id="@+id/reminder_manager_txt_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/reminder_manager_hint_title" />
+            android:hint="@string/reminder_manager_hint_title"
+            android:inputType="time" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -48,16 +50,4 @@
             android:hint="@string/reminder_manager_hint_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <CalendarView
-        android:id="@+id/calendarView_reminder_edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

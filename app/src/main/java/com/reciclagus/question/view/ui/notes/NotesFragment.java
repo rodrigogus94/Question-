@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.reciclagus.question.R;
+import com.reciclagus.question.controller.crud.NotesCRUD;
 import com.reciclagus.question.model.Note;
 import com.reciclagus.question.view.activities.EditNoteActivity;
 import com.reciclagus.question.view.activities.ReminderManagerActivity;
@@ -58,17 +59,8 @@ public class NotesFragment extends Fragment {
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
-        List<Note> notes = new ArrayList<Note>();
-        notes.add(new Note(0, "teste1", "teste1conteudo"));
-        notes.add(new Note(1, "teste2", "teste1\nconteudo\nteste1\nteste1conteudo"));
-        notes.add(new Note(2, "teste3", "aaa\naaa\nssss\naa\ns\nss\nssss\naaaa"));
-        notes.add(new Note(3, "teste4", "teste1conteudo\naaaa"));
-        notes.add(new Note(4, "teste5", "teste1conteudo"));
-        notes.add(new Note(0, "teste1", "teste1conteudo"));
-        notes.add(new Note(1, "teste2", "teste1\nconteudo\nteste1\nteste1conteudo"));
-        notes.add(new Note(2, "teste3", "aaa\naaa\nssss\naa\ns\nss\nssss\naaaa"));
-        notes.add(new Note(3, "teste4", "teste1conteudo\naaaa"));
-        notes.add(new Note(4, "teste5", "teste1conteudo"));
+        NotesCRUD crud = new NotesCRUD(getContext());
+        List<Note> notes = crud.getAll();
 
         recyclerView.setAdapter(new NoteAdapter(notes));
 

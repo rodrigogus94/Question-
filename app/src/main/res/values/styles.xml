@@ -17,4 +17,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="MeuTheme" parent="AppTheme" >
+        <item name="colorPrimaryDark">@android:color/holo_green_dark</item>
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 </resources>

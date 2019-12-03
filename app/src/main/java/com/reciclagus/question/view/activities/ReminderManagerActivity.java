@@ -1,5 +1,6 @@
 package com.reciclagus.question.view.activities;
 
+import android.app.DatePickerDialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -22,8 +23,10 @@ import androidx.core.app.NotificationManagerCompat;
 
 import android.view.View;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.reciclagus.question.R;
 
 import java.text.SimpleDateFormat;
@@ -32,9 +35,10 @@ import java.util.Date;
 
 public class ReminderManagerActivity extends AppCompatActivity {
 
-    CalendarView calendarView;
+
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH:mm:ss");
     SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm:ss");
+    TextInputEditText txt;
 
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -65,6 +69,8 @@ public class ReminderManagerActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
 
